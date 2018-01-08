@@ -6,8 +6,5 @@ router
 .route('/category')
 .get((req, res) => {
   Category.find()
-  .then(categories => {
-    res.json(categories)
-  })
 })
 module.exports = router
