@@ -13,7 +13,7 @@ const itemSchema = mongoose.Schema({
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
-    required: [true, 'seller must be listed']
+    required: [true, 'Category must be listed']
   },
   price: Number
 })
