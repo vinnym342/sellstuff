@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const seedAndReset = require('./db/seedAndReset')
 const cors = require('cors')
 const server = express()
 const listenport = 3000
@@ -21,6 +22,10 @@ server.use(cors())
 server.use(authRouter)
 
 server.get('/hai', (req,res)=> {
+  res.json({message: 'testing 123'})
+})
+server.get('/seednreset', (req,res)=> {
+  seedAndReset()
   res.json({message: 'testing 123'})
 })
 

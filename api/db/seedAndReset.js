@@ -1,12 +1,8 @@
-const Item = '../models/item'
-const User = '../models/user'
-const Category = '../models/category'
+const Item = require('../models/item')
+const User = require('../models/user')
+const Category = require('../models/category')
 
 const logError = (err) => {console.log(err)}
-
-Item.remove({}, logError);
-User.remove({}, logError);
-Category.remove({}, logError);
 
 const categories = [
 {name: "Art"},
@@ -45,7 +41,15 @@ const categories = [
 {name: "Everything Else"},
 ]
 
-categories.each((category)=> {
-  const newCategory = Category.new(category)
-  newCategory.save(logError)
-})
+const seedAndReset = () => {
+  categories.forEach((category)=> {
+    Category.create(category)
+    // console.log(category)
+  })
+
+  Item.remove({}, logError);
+  User.remove({}, logError);
+  Category.remove({}, logError);
+}
+
+module.exports = seedAndReset

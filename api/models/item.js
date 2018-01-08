@@ -18,6 +18,6 @@ const itemSchema = mongoose.Schema({
   price: Number
 })
 
-const User = mongoose.model('Item', itemSchema)
+const Item = mongoose.model('Item', itemSchema)
 
-module.exports = User
+module.exports = Item
